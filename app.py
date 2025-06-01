@@ -12,7 +12,7 @@ if st.session_state.page == 'select_user_type':
     st.markdown("Find the coffee that’s just right for you.")
 
     choices = {
-        "I just want to find a coffee I’ll enjoy": "Beginner", 
+        "I just want to find a coffee I’ll enjoy": "Beginner",
         "I’m familiar with tasting notes and want to adjust detailed preferences": "Expert"
     }
 
@@ -27,7 +27,7 @@ elif st.session_state.page == 'recommend':
         st.markdown("### Answer a few quick questions")
 
         roast = st.radio("How do you like your roast?", ["Light", "Medium", "Dark"])
-        
+
         flavor_profile = st.multiselect(
             "Which flavor notes do you enjoy?",
             ["Fruity", "Nutty", "Chocolatey", "Floral", "Earthy"]
