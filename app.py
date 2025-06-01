@@ -80,13 +80,12 @@ elif st.session_state.user_type == 'beginner':
             "aftertaste": 0.5
         }
 
-        # Optional: boost features based on flavor profile
         flavor_keywords = {
             "Fruity": ["acid"],
             "Nutty": ["flavor", "aftertaste"],
-            "Chocolatey": ["body", "flavor"],
+            "Chocolatey": ["body", "aftertaste"],
             "Floral": ["aroma", "flavor"],
-            "Earthy": ["aftertaste", "body"]
+            "Earthy": ["aftertaste"]
         }
 
         for note in flavor_profile:
