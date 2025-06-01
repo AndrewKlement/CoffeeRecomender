@@ -11,6 +11,7 @@ class CoffeeRecommender:
         self.features = ["agtron", "aroma", "acid", "body", "flavor", "aftertaste"]
         
         self.df['full_desc'] = self.df[['desc_1', 'desc_2', 'desc_3']].fillna('').agg(' '.join, axis=1)
+        self.df['full_desc'] = self.df['full_desc'].apply(self.__preprocess_description)
 
         self.df["agtron"] = self.df["agtron"].apply(self.__convert_to_float)
         self.df.dropna(subset=self.features, inplace=True)

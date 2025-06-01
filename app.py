@@ -64,9 +64,9 @@ elif st.session_state.user_type == 'beginner':
     if st.button("Recommend Coffee"):
 
         if with_milk == "Yes":
-            roast_map = {"Light": 0.7, "Medium": 0.4, "Dark": 0.1}
+            roast_map = {"Light": 0.7, "Medium": 0.3, "Dark": 0.0}
         else:
-            roast_map = {"Light": 0.8, "Medium": 0.5, "Dark": 0.2}
+            roast_map = {"Light": 1, "Medium": 0.75, "Dark": 0.5}
 
         strength_map = {"Mild": 0.3, "Medium": 0.5, "Strong": 0.8}
 
@@ -85,7 +85,7 @@ elif st.session_state.user_type == 'beginner':
             "Fruity": ["acid"],
             "Nutty": ["flavor", "aftertaste"],
             "Chocolatey": ["body", "flavor"],
-            "Floral": ["aroma"],
+            "Floral": ["aroma", "flavor"],
             "Earthy": ["aftertaste", "body"]
         }
 
@@ -94,12 +94,15 @@ elif st.session_state.user_type == 'beginner':
                 mapped_prefs[feat] = max(mapped_prefs.get(feat, 0.5), 0.7)
 
         alpha = 0.3 
-        recommendations = recommender.recommend(mapped_prefs, desc, alpha=alpha)
+        if desc == '':
+            recommendations = recommender.recommend(mapped_prefs, desc, alpha=1)
+        else:
+            recommendations = recommender.recommend(mapped_prefs, desc, alpha=alpha)
 
         st.header("Top Coffee Recommendations:")
         for idx, row in recommendations.iterrows():
             st.markdown(f"### {row['name']} from {row['origin']}")
             st.markdown(f"- **Roast:** {row['roast']}  |  **Flavor:** {row['flavor']:.2f}")
             st.markdown(f"- **Aroma:** {row['aroma']:.2f}  |  **With Milk:** {'Yes' if row['with_milk'] > 0.5 else 'No'}")
-            st.markdown(f"**Description:** {row['full_desc'][:300]}...")
+            st.markdown(f"**Description:** {row['desc_1'][:300]}...")
             st.markdown("---")
