@@ -4,7 +4,7 @@ import re
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
+ 
 class CoffeeRecommender:
     def __init__(self, csv_path):
         self.df = pd.read_csv(csv_path)

@@ -82,8 +82,8 @@ elif st.session_state.page == 'recommend':
             st.header("Top Coffee Recommendations:")
             for idx, row in recommendations.iterrows():
                 st.markdown(f"### {row['name']} from {row['origin']}")
-                st.markdown(f"- **Roast:** {row['roast']}  |  **Flavor:** {row['flavor']:.2f}")
-                st.markdown(f"- **Aroma:** {row['aroma']:.2f}")
+                st.markdown(f"- **Roast:** {row['roast']}  |  **Acidity:** {row['acid']:.2f}  |  **Flavor:** {row['flavor']:.2f}")
+                st.markdown(f"- **Body:** {row['body']:.2f}  |  **Aroma:** {row['aroma']:.2f}  |  **Aftertaste:** {row['aftertaste']:.2f}")
                 st.markdown(f"**Description:** {row['desc_1']}")
                 st.markdown("---")
 
