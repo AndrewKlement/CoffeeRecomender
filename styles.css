@@ -1,0 +1,37 @@
+/* styles.css */
+
+/* Coffee Theme */
+.main { background-color: #1E1E1E; }
+h1, h2, h3, h4 {
+    color: #f5f5dc;
+    font-family: 'Segoe UI', sans-serif;
+}
+.stButton button {
+    background-color: #A47149;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.55em 1em;
+    margin-top: 0.55em;
+}
+.stButton>button:hover {
+    background-color: #C58E47;
+    color: #000;
+}
+.stRadio > div > label {
+    font-size: 16px;
+    color: #e0e0e0;
+}
+/* Ini untuk kustom MultiSelect, TextArea, NumberInput */
+.stMultiSelect, .stTextArea, .stNumberInput {
+    color: white !important;
+}
+
+/* Custom HR karamel rounded */
+.carafe-hr {
+    border: none;
+    height: 2px;
+    background-color: #A47149;
+    border-radius: 2px;
+    margin: 25px 0;
+}
