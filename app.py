@@ -1,4 +1,3 @@
-from random import choices
 import streamlit as st
 from recommender import CoffeeRecommender
 
